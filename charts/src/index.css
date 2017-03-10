@@ -1,0 +1,48 @@
+* {
+  border-box: box-sizing;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.app {
+  flex-direction: column;
+  background-color: #FFE0B2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: yellow;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
+  color: #FF0000;
+}
