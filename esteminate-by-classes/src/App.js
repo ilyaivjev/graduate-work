@@ -8,10 +8,12 @@ const mathjs = require('mathjs');
 
 const IMAGE_SIZE = 512;
 const CLASSES_COUNT = 3;
-const CLASSES_EXTENSIONS = ['bmp', 'png', 'bmp'];
+const CLASSES_EXTENSIONS = ['bmp', 'bmp', 'bmp'];
 const CLASSES_BOXES_IDS = ['#classA', '#classB', '#classC'];
 const IMAGES_COUNT_BY_CLASS = 10;
-const SCANS_COUNT = 5;
+const SCANS_COUNT = Object.keys(scans).length;
+
+console.log('SCANS_COUNT', SCANS_COUNT);
 
 const getBitmap = (path, extension) => {
   return new Promise((resolve, reject) => {
@@ -109,7 +111,7 @@ const renderMLEComparingPlot = ({ avgMLEByImage, XAxisMLEByImage, YAxisMLEByImag
     .enter().append("svg:circle")
     .attr("cx", function (d,i) { return x(d[0]); } )
     .attr("cy", function (d) { return y(d[1]); } )
-    .attr("r", 8);
+    .attr("r", 5);
 }
 
 const calcT1 = ({ seq }) => {
@@ -185,12 +187,12 @@ Promise.all(bitmaps)
           rowScan: {
             seq: flattenByScan(imagesLastBitsByClass[i][j], scans.rowScan),
           },
-          snakeScan: {
-            seq: flattenByScan(imagesLastBitsByClass[i][j], scans.snakeScan),
-          },
-          diagonalSnakeScan: {
-            seq: flattenByScan(imagesLastBitsByClass[i][j], scans.diagonalSnakeScan),
-          },
+          // snakeScan: {
+          //   seq: flattenByScan(imagesLastBitsByClass[i][j], scans.snakeScan),
+          // },
+          // diagonalSnakeScan: {
+          //   seq: flattenByScan(imagesLastBitsByClass[i][j], scans.diagonalSnakeScan),
+          // },
           spiralScan: {
             seq: flattenByScan(imagesLastBitsByClass[i][j], scans.spiralScan),
           },
@@ -204,15 +206,15 @@ Promise.all(bitmaps)
           ...getCalculationsByScan({ bitMapByLastBit: imagesLastBitsByClass[i][j], scan: 'rowScan' }),
         };
 
-        imagesLastBitsByClass[i][j].snakeScan = {
-          ...imagesLastBitsByClass[i][j].snakeScan,
-          ...getCalculationsByScan({ bitMapByLastBit: imagesLastBitsByClass[i][j], scan: 'snakeScan' }),
-        };
-
-        imagesLastBitsByClass[i][j].diagonalSnakeScan = {
-          ...imagesLastBitsByClass[i][j].diagonalSnakeScan,
-          ...getCalculationsByScan({ bitMapByLastBit: imagesLastBitsByClass[i][j], scan: 'diagonalSnakeScan' }),
-        };
+        // imagesLastBitsByClass[i][j].snakeScan = {
+        //   ...imagesLastBitsByClass[i][j].snakeScan,
+        //   ...getCalculationsByScan({ bitMapByLastBit: imagesLastBitsByClass[i][j], scan: 'snakeScan' }),
+        // };
+        //
+        // imagesLastBitsByClass[i][j].diagonalSnakeScan = {
+        //   ...imagesLastBitsByClass[i][j].diagonalSnakeScan,
+        //   ...getCalculationsByScan({ bitMapByLastBit: imagesLastBitsByClass[i][j], scan: 'diagonalSnakeScan' }),
+        // };
 
         imagesLastBitsByClass[i][j].spiralScan = {
           ...imagesLastBitsByClass[i][j].spiralScan,
@@ -241,13 +243,17 @@ Promise.all(bitmaps)
       }
 
       const avgMatrix = mathjs.matrix(sumMatrix).map(v => v / IMAGES_COUNT_BY_CLASS)._data;
+      console.log('sumMatrix', sumMatrix);
+      console.log('avgMatrix', avgMatrix);
       const eigenValues = numeric.eig(avgMatrix).lambda.x;
       const minEigenValue = Math.min(...eigenValues);
       const maxEigenValue = Math.max(...eigenValues);
 
-      console.log(eigenValues);
-      console.log(minEigenValue, maxEigenValue);
-      document.getElementById(`eigenvalues-${CLASSES_BOXES_IDS[i].slice(1)}`).innerHTML = `minEigenValue: ${minEigenValue}, maxEigenValue: ${maxEigenValue}`;
+      eigenValues.forEach((v, k) => {
+        const valueView = document.createElement('div');
+        valueView.innerHTML = `Eigen value ${k+1}: ${v}`;
+        document.getElementById(`eigenvalues-${CLASSES_BOXES_IDS[i].slice(1)}`).appendChild(valueView);
+      })
     }
 
     for (let i = 0; i < CLASSES_COUNT; i++) {
@@ -259,21 +265,21 @@ Promise.all(bitmaps)
         imagesCount: IMAGES_COUNT_BY_CLASS,
       });
 
-      renderMLEComparingPlot({
-        avgMLEByImage: imagesLastBitsByClass[i].map(d => d.avgMLE),
-        XAxisMLEByImage: imagesLastBitsByClass[i].map(d => d.snakeScan.mle),
-        YAxisMLEByImage: imagesLastBitsByClass[i].map(d => d.hilbertScan.mle),
-        graphBoxSelector: `${CLASSES_BOXES_IDS[i]} > .snake-vs-hilbert`,
-        imagesCount: IMAGES_COUNT_BY_CLASS,
-      });
-
-      renderMLEComparingPlot({
-        avgMLEByImage: imagesLastBitsByClass[i].map(d => d.avgMLE),
-        XAxisMLEByImage: imagesLastBitsByClass[i].map(d => d.diagonalSnakeScan.mle),
-        YAxisMLEByImage: imagesLastBitsByClass[i].map(d => d.hilbertScan.mle),
-        graphBoxSelector: `${CLASSES_BOXES_IDS[i]} > .diagonal-snake-vs-hilbert`,
-        imagesCount: IMAGES_COUNT_BY_CLASS,
-      });
+      // renderMLEComparingPlot({
+      //   avgMLEByImage: imagesLastBitsByClass[i].map(d => d.avgMLE),
+      //   XAxisMLEByImage: imagesLastBitsByClass[i].map(d => d.snakeScan.mle),
+      //   YAxisMLEByImage: imagesLastBitsByClass[i].map(d => d.hilbertScan.mle),
+      //   graphBoxSelector: `${CLASSES_BOXES_IDS[i]} > .snake-vs-hilbert`,
+      //   imagesCount: IMAGES_COUNT_BY_CLASS,
+      // });
+      //
+      // renderMLEComparingPlot({
+      //   avgMLEByImage: imagesLastBitsByClass[i].map(d => d.avgMLE),
+      //   XAxisMLEByImage: imagesLastBitsByClass[i].map(d => d.diagonalSnakeScan.mle),
+      //   YAxisMLEByImage: imagesLastBitsByClass[i].map(d => d.hilbertScan.mle),
+      //   graphBoxSelector: `${CLASSES_BOXES_IDS[i]} > .diagonal-snake-vs-hilbert`,
+      //   imagesCount: IMAGES_COUNT_BY_CLASS,
+      // });
 
       renderMLEComparingPlot({
         avgMLEByImage: imagesLastBitsByClass[i].map(d => d.avgMLE),

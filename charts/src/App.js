@@ -1,17 +1,21 @@
 import React from 'react';
 import * as d3 from "d3";
+import _ from 'lodash';
 import * as scans from './scans';
 
-const IMAGE_SIZE = 512;
-const IMAGES_COUNT = 38;
+const numeric = require('numeric');
 
-const getBitmap = (path) => {
+const IMAGE_SIZE = 512;
+const IMAGES_COUNT = 3;
+const SCANS_COUNT = 5;
+
+const getBitmap = path => {
   return new Promise((resolve, reject) => {
     const image = new Image();
     image.src = path;
 
     image.onload = () => {
-      const canvas = document.getElementById('canvasily');
+      const canvas = document.getElementById('images-handler-box');
       const ctx = canvas.getContext('2d');
 
 
@@ -50,6 +54,59 @@ const flattenByScan = (data2d, scan) => {
   return flattenedData;
 }
 
+const renderMLEComparingPlot = ({ avgMLEByImage, XAxisMLEByImage, YAxisMLEByImage, graphBoxSelector }) => {
+  const data = []
+  for (let i = 0; i < IMAGES_COUNT; i++) {
+    data.push([avgMLEByImage[i] - XAxisMLEByImage[i], avgMLEByImage[i] - YAxisMLEByImage[i]]);
+  }
+
+  const margin = {top: 60, right: 60, bottom: 60, left: 60}
+    , width = 900 - margin.left - margin.right
+    , height = 900 - margin.top - margin.bottom;
+
+  const x = d3.scaleLinear()
+    .domain([d3.min(data, function(d) { return d[0]; }), d3.max(data, function(d) { return d[0]; })])
+    .range([ 0, width ]);
+
+  const y = d3.scaleLinear()
+    .domain([d3.min(data, function(d) { return d[1]; }), d3.max(data, function(d) { return d[1]; })])
+    .range([ height, 0 ]);
+
+  const chart = d3.select(graphBoxSelector)
+  .append('svg:svg')
+  .attr('width', width + margin.right + margin.left)
+  .attr('height', height + margin.top + margin.bottom)
+  .attr('class', 'chart')
+
+  const main = chart.append('g')
+    .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+    .attr('width', width)
+    .attr('height', height)
+    .attr('class', 'main');
+
+  const xAxis = d3.axisBottom().scale(x)
+
+  main.append('g')
+    .attr('transform', 'translate(0,' + height + ')')
+    .attr('class', 'main axis date')
+    .call(xAxis);
+
+  const yAxis = d3.axisLeft().scale(y)
+
+  main.append('g')
+    .attr('transform', 'translate(0,0)')
+    .attr('class', 'main axis date')
+    .call(yAxis);
+
+  const g = main.append("svg:g");
+
+  g.selectAll("scatter-dots")
+    .data(data)
+    .enter().append("svg:circle")
+    .attr("cx", function (d,i) { return x(d[0]); } )
+    .attr("cy", function (d) { return y(d[1]); } )
+    .attr("r", 3);
+}
 
 const bitmaps = []
 for (let i = 0; i < IMAGES_COUNT; i++) {
@@ -95,66 +152,64 @@ Promise.all(bitmaps)
       }
     }
 
-    let data = []
+    const MLEsByImage = [];
+    const MLEsByImageArr = [];
     for (let i = 0; i < IMAGES_COUNT; i++) {
-      data.push([binarySequencesByScan.rowScan[i].p, binarySequencesByScan.hilbertScan[i].p]);
+      let sum = 0;
+      const MLEs = {};
+      for (let key in binarySequencesByScan) {
+        MLEs[key] = binarySequencesByScan[key][i].mle;
+        sum += binarySequencesByScan[key][i].mle;
+      }
+
+      MLEsByImageArr.push(_.values(MLEs).map(d => d - sum / SCANS_COUNT));
+      MLEsByImage.push({
+        ...MLEs,
+        avg: sum / SCANS_COUNT,
+      });
     }
 
-    var margin = {top: 20, right: 15, bottom: 60, left: 60}
-      , width = 960 - margin.left - margin.right
-      , height = 500 - margin.top - margin.bottom;
+    renderMLEComparingPlot({
+      avgMLEByImage: MLEsByImage.map(d => d.avg),
+      XAxisMLEByImage: binarySequencesByScan.rowScan.map(d => d.mle),
+      YAxisMLEByImage: binarySequencesByScan.hilbertScan.map(d => d.mle),
+      graphBoxSelector: '#row-vs-hilbert',
+    });
 
-    var x = d3.scaleLinear()
-              .domain([0, d3.max(data, function(d) { return d[0]; })])
-              .range([ 0, width ]);
+    renderMLEComparingPlot({
+      avgMLEByImage: MLEsByImage.map(d => d.avg),
+      XAxisMLEByImage: binarySequencesByScan.rowScan.map(d => d.mle),
+      YAxisMLEByImage: binarySequencesByScan.hilbertScan.map(d => d.mle),
+      graphBoxSelector: '#snake-vs-hilbert',
+    });
 
-    var y = d3.scaleLinear()
-    	      .domain([0, d3.max(data, function(d) { return d[1]; })])
-    	      .range([ height, 0 ]);
+    renderMLEComparingPlot({
+      avgMLEByImage: MLEsByImage.map(d => d.avg),
+      XAxisMLEByImage: binarySequencesByScan.rowScan.map(d => d.mle),
+      YAxisMLEByImage: binarySequencesByScan.hilbertScan.map(d => d.mle),
+      graphBoxSelector: '#diagonal-snake-vs-hilbert',
+    });
 
-    var chart = d3.select('body')
-  	.append('svg:svg')
-  	.attr('width', width + margin.right + margin.left)
-  	.attr('height', height + margin.top + margin.bottom)
-  	.attr('class', 'chart')
+    renderMLEComparingPlot({
+      avgMLEByImage: MLEsByImage.map(d => d.avg),
+      XAxisMLEByImage: binarySequencesByScan.spiralScan.map(d => d.mle),
+      YAxisMLEByImage: binarySequencesByScan.hilbertScan.map(d => d.mle),
+      graphBoxSelector: '#spiral-vs-hilbert',
+    });
 
-    var main = chart.append('g')
-  	.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
-  	.attr('width', width)
-  	.attr('height', height)
-  	.attr('class', 'main')
-
-    var xAxis = d3.axisBottom().scale(x)
-
-      main.append('g')
-  	.attr('transform', 'translate(0,' + height + ')')
-  	.attr('class', 'main axis date')
-  	.call(xAxis);
-
-      // draw the y axis
-      var yAxis = d3.axisLeft()
-  	.scale(y)
-
-      main.append('g')
-  	.attr('transform', 'translate(0,0)')
-  	.attr('class', 'main axis date')
-  	.call(yAxis);
-
-    var g = main.append("svg:g");
-
-    g.selectAll("scatter-dots")
-      .data(data)
-      .enter().append("svg:circle")
-          .attr("cx", function (d,i) { return x(d[0]); } )
-          .attr("cy", function (d) { return y(d[1]); } )
-          .attr("r", 3);
+    for (let i = 0; i < IMAGES_COUNT; i++) {
+      const MLEsDeviationVector = numeric.diag(MLEsByImageArr[i]);
+      const MLEsDeviationVectorTransposed = numeric.transpose(MLEsDeviationVector);
+      console.log(MLEsDeviationVector, MLEsDeviationVectorTransposed);
+      console.log(numeric.dot(MLEsDeviationVector, MLEsDeviationVectorTransposed));
+    }
   })
 
 
 class App extends React.PureComponent {
   render() {
-    return (
-      <div className="app">
+    return  (
+      <div>
       </div>
     );
   }

@@ -4,12 +4,12 @@ export const rowScan = (i, j, n) => i * n + j;
 
 export const snakeScan = (i, j, n) => {
   let colOffset = 0;
-  if (j % 2 === 0) {
-    colOffset = i;
+  if (i % 2 === 0) {
+    colOffset = j;
   } else {
-    colOffset = n - 1 - i;
+    colOffset = n - 1 - j;
   }
-  return n * j + colOffset;
+  return n * i + colOffset;
 };
 
 export const diagonalSnakeScan = (i, j, n) => n * j + n - 1 - (n - 1 - i);

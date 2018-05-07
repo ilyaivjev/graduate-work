@@ -2,17 +2,17 @@ const H = require('hilbert');
 
 export const rowScan = (i, j, n) => i * n + j;
 
-export const snakeScan = (i, j, n) => {
-  let colOffset = 0;
-  if (j % 2 === 0) {
-    colOffset = i;
-  } else {
-    colOffset = n - 1 - i;
-  }
-  return n * j + colOffset;
-};
-
-export const diagonalSnakeScan = (i, j, n) => n * j + n - 1 - (n - 1 - i);
+// export const snakeScan = (i, j, n) => {
+//   let colOffset = 0;
+//   if (j % 2 === 0) {
+//     colOffset = i;
+//   } else {
+//     colOffset = n - 1 - i;
+//   }
+//   return n * j + colOffset;
+// };
+//
+// export const diagonalSnakeScan = (i, j, n) => n * j + n - 1 - (n - 1 - i);
 
 export const spiralScan = (i, j, n) => {
   const outerLevelsCount = Math.min(i, j, n - 1 - i, n - 1 - j);

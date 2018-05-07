@@ -1,0 +1,9 @@
+\select@language {russian}
+\contentsline {chapter}{Введение}{3}
+\contentsline {chapter}{\numberline {1}Описание данных}{4}
+\contentsline {section}{\numberline {1.1}Понятие развертки}{6}
+\contentsline {chapter}{\numberline {2}Два подхода к моделированию случайного двоичного поля}{8}
+\contentsline {section}{\numberline {2.1}Расстояния Кульбака-Лейблера между моделями}{9}
+\contentsline {chapter}{\numberline {3}Численные эксперименты}{11}
+\contentsline {chapter}{Заключение}{24}
+\contentsline {chapter}{Список литературы}{24}

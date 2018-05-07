@@ -1,0 +1,813 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.23)  23 MAR 2017 12:01
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**"Ivev Diplom.tex"
+(./Ivev Diplom.tex
+LaTeX2e <2016/03/31>
+Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2016/04/23 3.9r The Babel package
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/babel-russian/russianb.ldf
+Language: russianb 2016/02/18 1.3h Russian support for the Babel system
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2016/04/23 3.9r Babel common definitions
+\babel@savecnt=\count88
+\U@D=\dimen103
+)
+
+Package babel Warning: No Cyrillic font encoding has been loaded so far.
+(babel)                A font encoding should be declared before babel.
+(babel)                Default `T2A' encoding will be loaded  on input line 69.
+
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/cyrillic/t2aenc.def
+File: t2aenc.def 2005/09/27 v1.0i Cyrillic encoding definition file
+)
+
+Package babel Warning: No input encoding specified for Russian language on inpu
+t line 110.
+
+Package babel Info: Making " an active character on input line 111.
+)) (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks14
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2015/03/04 v2.20.2
+\thm@style=\toks15
+\thm@bodyfont=\toks16
+\thm@headfont=\toks17
+\thm@notefont=\toks18
+\thm@headpunct=\toks19
+\thm@preskip=\skip43
+\thm@postskip=\skip44
+\thm@headsep=\skip45
+\dth@everypar=\toks20
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/03/10 v2.15b AMS math features
+\@mathmargin=\skip46
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks21
+\ex@=\dimen104
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen105
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count89
+LaTeX Info: Redefining \frac on input line 199.
+\uproot@=\count90
+\leftroot@=\count91
+LaTeX Info: Redefining \overline on input line 297.
+\classnum@=\count92
+\DOTSCASE@=\count93
+LaTeX Info: Redefining \ldots on input line 394.
+LaTeX Info: Redefining \dots on input line 397.
+LaTeX Info: Redefining \cdots on input line 518.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen106
+LaTeX Font Info:    Redeclaring font encoding OML on input line 634.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
+\macc@depth=\count94
+\c@MaxMatrixCols=\count95
+\dotsspace@=\muskip10
+\c@parentequation=\count96
+\dspbrk@lvl=\count97
+\tag@help=\toks22
+\row@=\count98
+\column@=\count99
+\maxfields@=\count100
+\andhelp@=\toks23
+\eqnshift@=\dimen107
+\alignsep@=\dimen108
+\tagshift@=\dimen109
+\tagwidth@=\dimen110
+\totwidth@=\dimen111
+\lineht@=\dimen112
+\@envbody=\toks24
+\multlinegap=\skip47
+\multlinetaggap=\skip48
+\mathdisplay@stack=\toks25
+LaTeX Info: Redefining \[ on input line 2739.
+LaTeX Info: Redefining \] on input line 2740.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amscd.sty
+Package: amscd 1999/11/29 v2.0 AMS Commutatitive Diagrams
+\athelp@=\toks26
+\minaw@=\dimen113
+\bigaw@=\dimen114
+\minCDarrowwidth=\dimen115
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks27
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2016/05/09 v1.0r Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/01/02 v1.10 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 96.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count101
+))
+\Gin@req@height=\dimen116
+\Gin@req@width=\dimen117
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count102
+\float@exts=\toks28
+\float@box=\box28
+\@float@everytoks=\toks29
+\@floatcapt=\box29
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/cite/cite.sty
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 332.
+Package: cite 2015/02/27  v 5.5
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/bbm-macros/bbm.sty
+Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
+LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
+(Font)                  U/bbm/m/n --> U/bbm/bx/n on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
+(Font)                  U/bbmss/m/n --> U/bbmss/bx/n on input line 35.
+)
+\c@lemma=\count103
+\c@proposition=\count104
+\c@corollary=\count105
+\c@statement=\count106
+\c@theorem=\count107
+\c@definition=\count108
+\c@conjecture=\count109
+\c@algorithm=\count110
+\c@property=\count111
+\c@remark=\count112
+\c@example=\count113
+\c@note=\count114
+\c@case=\count115
+\abovetablecaptionskip=\skip49
+\belowtablecaptionskip=\skip50
+\tableparindent=\skip51
+
+(./Ivev Diplom.aux)
+\openout1 = `"Ivev Diplom.aux"'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 184.
+LaTeX Font Info:    ... okay on input line 184.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 184.
+LaTeX Font Info:    ... okay on input line 184.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 184.
+LaTeX Font Info:    ... okay on input line 184.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 184.
+LaTeX Font Info:    ... okay on input line 184.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 184.
+LaTeX Font Info:    ... okay on input line 184.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 184.
+LaTeX Font Info:    ... okay on input line 184.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 184.
+LaTeX Font Info:    Try loading font information for T2A+cmr on input line 184.
+
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/cyrillic/t2acmr.fd
+File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+)
+LaTeX Font Info:    ... okay on input line 184.
+
+(/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count116
+\scratchdimen=\dimen118
+\scratchbox=\box30
+\nofMPsegments=\count117
+\nofMParguments=\count118
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count119
+\MPscratchDim=\dimen119
+\MPnumerator=\count120
+\makeMPintoPDFobject=\count121
+\everyMPtoPDFconversion=\toks31
+) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+LaTeX Font Info:    Try loading font information for U+msa on input line 233.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 233.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Overfull \hbox (73.15407pt too wide) in paragraph at lines 235--235
+[]\T2A/cmr/m/n/10.95 с пред-ва-ри-тель-ной оценкой[]| 
+ []
+
+
+Overfull \hbox (60.75188pt too wide) in paragraph at lines 236--236
+[]\T2A/cmr/bx/n/10.95 Руководитель работы[]| 
+ []
+
+
+Overfull \hbox (34.45274pt too wide) in paragraph at lines 233--240
+[] 
+ []
+
+[1
+
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+(./Ivev Diplom.toc)
+\tf@toc=\write3
+\openout3 = `"Ivev Diplom.toc"'.
+
+ [2
+
+] [3
+
+]
+{\cyrillictext \CYRG \cyrl \cyra \cyrv \cyra } 1.
+
+LaTeX Warning: Reference `K2' on page 4 undefined on input line 268.
+
+
+LaTeX Warning: Reference `K2toB' on page 4 undefined on input line 275.
+
+<2Dgrid.png, id=17, 578.16pt x 578.16pt>
+File: 2Dgrid.png Graphic file (type png)
+ <use 2Dgrid.png>
+Package pdftex.def Info: 2Dgrid.png used on input line 291.
+(pdftex.def)             Requested size: 241.84842pt x 241.8463pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: Reference `K2' on page 4 undefined on input line 295.
+
+
+LaTeX Warning: Reference `E2' on page 4 undefined on input line 295.
+
+
+LaTeX Warning: Reference `2Dgrid.img' on page 4 undefined on input line 296.
+
+
+LaTeX Warning: Reference `K2' on page 4 undefined on input line 307.
+
+
+LaTeX Warning: Reference `E2' on page 4 undefined on input line 307.
+
+
+LaTeX Warning: Reference `E2' on page 4 undefined on input line 309.
+
+
+LaTeX Warning: Reference `K2toB' on page 4 undefined on input line 313.
+
+
+LaTeX Warning: Reference `zscan.img' on page 4 undefined on input line 329.
+
+[4
+
+] <zscan.png, id=29, 698.61pt x 690.58pt>
+File: zscan.png Graphic file (type png)
+ <use zscan.png>
+Package pdftex.def Info: zscan.png used on input line 332.
+(pdftex.def)             Requested size: 241.84842pt x 239.07227pt.
+ [5 <./2Dgrid.png> <./zscan.png>]
+
+LaTeX Warning: Reference `K2' on page 6 undefined on input line 346.
+
+
+LaTeX Warning: Reference `K1' on page 6 undefined on input line 352.
+
+
+LaTeX Warning: Reference `K2' on page 6 undefined on input line 358.
+
+
+LaTeX Warning: Reference `E2' on page 6 undefined on input line 358.
+
+
+LaTeX Warning: Reference `scan' on page 6 undefined on input line 360.
+
+
+LaTeX Warning: Reference `K2toB' on page 6 undefined on input line 361.
+
+
+LaTeX Warning: Reference `zscan.img' on page 6 undefined on input line 367.
+
+
+LaTeX Warning: Reference `K2toB' on page 6 undefined on input line 372.
+
+
+LaTeX Warning: Reference `scan' on page 6 undefined on input line 386.
+
+
+LaTeX Warning: Reference `scan.row' on page 6 undefined on input line 394.
+
+
+LaTeX Warning: Reference `3scans.img' on page 6 undefined on input line 398.
+
+
+LaTeX Warning: Reference `scan.row' on page 6 undefined on input line 405.
+
+
+LaTeX Warning: Reference `snake_vs_Peano.img' on page 6 undefined on input line
+ 408.
+
+
+LaTeX Warning: Reference `snake_vs_Peano.img' on page 6 undefined on input line
+ 411.
+
+<3scans.jpg, id=36, 1142.2675pt x 412.54124pt>
+File: 3scans.jpg Graphic file (type jpg)
+ <use 3scans.jpg>
+Package pdftex.def Info: 3scans.jpg used on input line 414.
+(pdftex.def)             Requested size: 483.69684pt x 174.68878pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<snake_vs_Peano.jpg, id=37, 1503.6175pt x 744.7825pt>
+File: snake_vs_Peano.jpg Graphic file (type jpg)
+ <use snake_vs_Peano.jpg>
+Package pdftex.def Info: snake_vs_Peano.jpg used on input line 420.
+(pdftex.def)             Requested size: 483.69684pt x 239.58536pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[6] [7 <./3scans.jpg> <./snake_vs_Peano.jpg>]
+{\cyrillictext \CYRG \cyrl \cyra \cyrv \cyra } 2.
+
+LaTeX Warning: Reference `K2toB' on page 8 undefined on input line 428.
+
+
+LaTeX Warning: Reference `K2' on page 8 undefined on input line 429.
+
+
+LaTeX Warning: Reference `E2' on page 8 undefined on input line 429.
+
+
+LaTeX Warning: Reference `K1' on page 8 undefined on input line 447.
+
+LaTeX Font Info:    Try loading font information for T2A+cmss on input line 451
+.
+(/usr/local/texlive/2016/texmf-dist/tex/latex/cyrillic/t2acmss.fd
+File: t2acmss.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+)
+
+LaTeX Warning: Reference `K2toB' on page 8 undefined on input line 464.
+
+
+LaTeX Warning: Reference `ising.1D' on page 8 undefined on input line 465.
+
+
+LaTeX Warning: Reference `scan.seq' on page 8 undefined on input line 465.
+
+
+LaTeX Warning: Reference `K2' on page 8 undefined on input line 467.
+
+
+LaTeX Warning: Reference `E2' on page 8 undefined on input line 467.
+
+
+LaTeX Warning: Reference `K2toB' on page 8 undefined on input line 479.
+
+
+LaTeX Warning: Reference `ising.def' on page 8 undefined on input line 487.
+
+
+LaTeX Warning: Reference `partit' on page 8 undefined on input line 487.
+
+
+LaTeX Warning: Reference `K2toB' on page 8 undefined on input line 487.
+
+
+LaTeX Warning: Reference `K2' on page 8 undefined on input line 488.
+
+
+LaTeX Warning: Reference `E2' on page 8 undefined on input line 488.
+
+
+LaTeX Warning: Reference `scan' on page 8 undefined on input line 490.
+
+[8
+
+]
+
+LaTeX Warning: Reference `partit' on page 9 undefined on input line 509.
+
+
+LaTeX Warning: Reference `K2' on page 9 undefined on input line 510.
+
+
+LaTeX Warning: Reference `E2' on page 9 undefined on input line 511.
+
+
+LaTeX Warning: Reference `K1' on page 9 undefined on input line 511.
+
+
+LaTeX Warning: Reference `K1' on page 9 undefined on input line 517.
+
+
+LaTeX Warning: Reference `F' on page 9 undefined on input line 517.
+
+
+LaTeX Warning: Reference `K2' on page 9 undefined on input line 522.
+
+
+LaTeX Warning: Reference `E2' on page 9 undefined on input line 522.
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 534.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 534.
+
+
+LaTeX Warning: Reference `ising.def' on page 9 undefined on input line 534.
+
+
+LaTeX Warning: Reference `K2' on page 9 undefined on input line 535.
+
+
+LaTeX Warning: Reference `E2' on page 9 undefined on input line 535.
+
+
+LaTeX Warning: Reference `K2toB' on page 9 undefined on input line 537.
+
+
+LaTeX Warning: Reference `scan.seq' on page 9 undefined on input line 538.
+
+
+LaTeX Warning: Reference `ising.1D' on page 9 undefined on input line 539.
+
+
+LaTeX Warning: Reference `K2' on page 9 undefined on input line 548.
+
+
+LaTeX Warning: Reference `E2' on page 9 undefined on input line 549.
+
+
+LaTeX Warning: Reference `KL' on page 9 undefined on input line 549.
+
+
+LaTeX Warning: Reference `F1' on page 9 undefined on input line 561.
+
+
+LaTeX Warning: Reference `F2' on page 9 undefined on input line 561.
+
+[9]
+
+LaTeX Warning: Reference `ising.def' on page 10 undefined on input line 572.
+
+
+LaTeX Warning: Reference `partit' on page 10 undefined on input line 573.
+
+
+LaTeX Warning: Reference `K2' on page 10 undefined on input line 575.
+
+
+LaTeX Warning: Reference `E2' on page 10 undefined on input line 575.
+
+
+LaTeX Warning: Reference `partit' on page 10 undefined on input line 579.
+
+
+LaTeX Warning: Reference `K2toB' on page 10 undefined on input line 582.
+
+
+LaTeX Warning: Reference `ising.def' on page 10 undefined on input line 582.
+
+
+LaTeX Warning: Reference `KL' on page 10 undefined on input line 583.
+
+
+LaTeX Warning: Reference `F' on page 10 undefined on input line 583.
+
+
+LaTeX Warning: Reference `F2' on page 10 undefined on input line 583.
+
+
+LaTeX Warning: Reference `K2' on page 10 undefined on input line 592.
+
+
+LaTeX Warning: Reference `E2' on page 10 undefined on input line 592.
+
+
+LaTeX Warning: Reference `KL21thm.pf1' on page 10 undefined on input line 607.
+
+
+LaTeX Warning: Reference `KL21thm.pf3' on page 10 undefined on input line 607.
+
+
+LaTeX Warning: Reference `KL21' on page 10 undefined on input line 608.
+
+
+LaTeX Warning: Reference `K2' on page 10 undefined on input line 612.
+
+
+LaTeX Warning: Reference `E2' on page 10 undefined on input line 613.
+
+
+LaTeX Warning: Reference `KL21' on page 10 undefined on input line 614.
+
+
+Underfull \hbox (badness 1184) in paragraph at lines 612--618
+\T2A/cmr/bx/n/12 Следствие 2.1. \T2A/cmr/m/it/12 При боль-ших раз-ме-рах $\OML/
+cmm/m/it/12 m; n \OMS/cmsy/m/n/12 ^^] \OT1/cmr/m/n/12 1$ \T2A/cmr/m/it/12 пря-м
+о-уголь-ной ре-шет-ки [],
+ []
+
+
+LaTeX Warning: Reference `KL21def' on page 10 undefined on input line 625.
+
+
+LaTeX Warning: Reference `F1' on page 10 undefined on input line 626.
+
+[10]
+{\cyrillictext \CYRG \cyrl \cyra \cyrv \cyra } 3.
+<class1_row_peano.png, id=61, 530.98375pt x 570.13pt>
+File: class1_row_peano.png Graphic file (type png)
+
+<use class1_row_peano.png>
+Package pdftex.def Info: class1_row_peano.png used on input line 632.
+(pdftex.def)             Requested size: 483.69684pt x 519.36719pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<class1_snake_peano.png, id=62, 534.99875pt x 543.02875pt>
+File: class1_snake_peano.png Graphic file (type png)
+
+<use class1_snake_peano.png>
+Package pdftex.def Info: class1_snake_peano.png used on input line 637.
+(pdftex.def)             Requested size: 483.69684pt x 490.97511pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<class1_spiral_peano.png, id=63, 564.1075pt x 526.96875pt>
+File: class1_spiral_peano.png Graphic file (type png)
+
+<use class1_spiral_peano.png>
+Package pdftex.def Info: class1_spiral_peano.png used on input line 642.
+(pdftex.def)             Requested size: 483.69684pt x 451.85754pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<class1_ising_peano.png, id=64, 555.07375pt x 514.92375pt>
+File: class1_ising_peano.png Graphic file (type png)
+
+<use class1_ising_peano.png>
+Package pdftex.def Info: class1_ising_peano.png used on input line 647.
+(pdftex.def)             Requested size: 483.69684pt x 448.71075pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<class2_row_peano.png, id=65, 529.98pt x 543.02875pt>
+File: class2_row_peano.png Graphic file (type png)
+
+<use class2_row_peano.png>
+Package pdftex.def Info: class2_row_peano.png used on input line 652.
+(pdftex.def)             Requested size: 483.69684pt x 495.61525pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<class2_snake_peano.png, id=66, 531.9875pt x 550.055pt>
+File: class2_snake_peano.png Graphic file (type png)
+
+<use class2_snake_peano.png>
+Package pdftex.def Info: class2_snake_peano.png used on input line 657.
+(pdftex.def)             Requested size: 483.69684pt x 500.13956pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<class2_spiral_peano.png, id=67, 543.02875pt x 515.9275pt>
+File: class2_spiral_peano.png Graphic file (type png)
+
+<use class2_spiral_peano.png>
+Package pdftex.def Info: class2_spiral_peano.png used on input line 662.
+(pdftex.def)             Requested size: 483.69684pt x 459.57552pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<class2_ising_peano.png, id=68, 521.95pt x 523.9575pt>
+File: class2_ising_peano.png Graphic file (type png)
+
+<use class2_ising_peano.png>
+Package pdftex.def Info: class2_ising_peano.png used on input line 667.
+(pdftex.def)             Requested size: 483.69684pt x 485.56453pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<class3_row_peano.png, id=69, 587.19376pt x 536.0025pt>
+File: class3_row_peano.png Graphic file (type png)
+
+<use class3_row_peano.png>
+Package pdftex.def Info: class3_row_peano.png used on input line 672.
+(pdftex.def)             Requested size: 483.69684pt x 441.52869pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<class3_snake_peano.png, id=70, 520.94624pt x 531.9875pt>
+File: class3_snake_peano.png Graphic file (type png)
+
+<use class3_snake_peano.png>
+Package pdftex.def Info: class3_snake_peano.png used on input line 677.
+(pdftex.def)             Requested size: 483.69684pt x 493.94775pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<class3_spiral_peano.png, id=71, 534.99875pt x 526.96875pt>
+File: class3_spiral_peano.png Graphic file (type png)
+
+<use class3_spiral_peano.png>
+Package pdftex.def Info: class3_spiral_peano.png used on input line 682.
+(pdftex.def)             Requested size: 483.69684pt x 476.4546pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<class3_ising_peano.png, id=72, 593.21625pt x 541.02126pt>
+File: class3_ising_peano.png Graphic file (type png)
+
+<use class3_ising_peano.png>
+Package pdftex.def Info: class3_ising_peano.png used on input line 687.
+(pdftex.def)             Requested size: 483.69684pt x 441.15544pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[11
+
+] [12 <./class1_row_peano.png>] [13 <./class1_snake_peano.png>] [14 <./class1_s
+piral_peano.png>] [15 <./class1_ising_peano.png>] [16 <./class2_row_peano.png>]
+ [17 <./class2_snake_peano.png>] [18 <./class2_spiral_peano.png>] [19 <./class2
+_ising_peano.png>] [20 <./class3_row_peano.png>] [21 <./class3_snake_peano.png>
+] [22 <./class3_spiral_peano.png>] [23 <./class3_ising_peano.png>] [24
+
+]
+Underfull \hbox (badness 3049) in paragraph at lines 701--704
+[]\T2A/cmr/m/it/12 Kindermann, R., Snell, J.L. \T2A/cmr/m/n/12 Markov Random Fi
+elds and Their Applications /
+ []
+
+[25
+
+] (./Ivev Diplom.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 3822 strings out of 493014
+ 50069 string characters out of 6133351
+ 117757 words of memory out of 5000000
+ 7269 multiletter control sequences out of 15000+600000
+ 15666 words of font info for 41 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 38i,12n,26p,254b,275s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc
+}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></u
+sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
+/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/l
+ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/loca
+l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/t
+exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
+xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texl
+ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/te
+xlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local
+/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/t
+exlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/tex
+live/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texli
+ve/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive
+/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2
+016/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/201
+6/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/texlive/2016/
+texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
+Output written on "Ivev Diplom.pdf" (25 pages, 942213 bytes).
+PDF statistics:
+ 198 PDF objects out of 1000 (max. 8388607)
+ 119 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+

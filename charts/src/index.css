@@ -16,33 +16,32 @@ body {
 }
 
 #root {
+  margin: 20px 0;
   height: 100%;
   width: 100%;
-}
-
-.app {
+  display: flex;
   flex-direction: column;
-  background-color: #FFE0B2;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
 }
 
-.container {
-  margin-top: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  background-color: yellow;
+#images-handler-box {
+  display: none;
 }
 
-.item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.chart {
+
 }
 
-.label {
-  color: #FF0000;
+.main text {
+    font: 10px sans-serif;
+}
+
+.axis line, .axis path {
+    shape-rendering: crispEdges;
+    stroke: black;
+    fill: none;
+}
+
+circle {
+    fill: steelblue;
 }

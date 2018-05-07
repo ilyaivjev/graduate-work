@@ -1,0 +1,725 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[russian]{babel}
+\usepackage{amssymb,amsthm,amsmath,amscd}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{cite}
+\usepackage{bbm}
+%пакет cite служит для простой вставки ссылок на публикации в работе, если что,
+%вызов этого пакета можно закомментировать с помощью символа %
+
+%Оформление теорем, лемм и т.д.
+\theoremstyle{plain} % default
+\newtheorem{lemma}{Лемма}[chapter]
+\newtheorem{proposition}{Предложение}[chapter]
+\newtheorem{corollary}{Следствие}[chapter]
+\newtheorem{statement}{Утверждение}[chapter]
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Теорема}[chapter]
+\newtheorem{definition}{Определение}[chapter]
+\newtheorem{conjecture}{Гипотеза}[chapter]
+\newtheorem{algorithm}{Алгоритм}[chapter]
+\newtheorem{property}{Свойство}[chapter]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Замечание}[chapter]
+\newtheorem{example}{Пример}[chapter]
+\newtheorem{note}{Примечание}[chapter]
+\newtheorem{case}{Случай}[chapter]
+
+%Определение полей
+\setlength{\oddsidemargin}{0cm}% 1in=2.54см
+\setlength{\hoffset}{0.46cm}% 1in+\hoffset=3cm = левое поле;
+
+\setlength{\textwidth}{17cm}% 21cm-3cm(левое поле)-1cm(правое поле)=17cm;
+
+\setlength{\headheight}{0cm}%
+\setlength{\topmargin}{0cm}%
+\setlength{\headsep}{0cm}%
+\setlength{\voffset}{-0.54cm}% 1in+\voffset=2cm = верхнее поле;
+
+\setlength{\textheight}{25.7cm}% 29.7cm-2cm(верхнее поле)-2cm(нижнее поле)=25.7cm;
+
+%Оформление глав, разделов и т.д.
+\makeatletter%
+
+%не подавлять абзацный отступ в главах
+\renewcommand{\chapter}{\cleardoublepage\thispagestyle{plain}%
+\global\@topnum=0 \@afterindenttrue \secdef\@chapter\@schapter}
+
+%оформление нумерованных глав
+\renewcommand{\@makechapterhead}[1]{%Начало макроопределения
+\vspace*{50pt}%Пустое место вверху страницы
+{\parindent=18pt \normalfont\Large\bfseries
+\thechapter{} %номер главы
+\normalfont\Large\bfseries #1 \par %заголовок от текста
+\nopagebreak %чтоб не оторвать заголовок от текста
+\vspace{40 pt} %между заголовком и текстом
+}%конец группы
+}%коней макроопределения
+
+%оформление ненумерованных глав
+\renewcommand{\@makeschapterhead}[1]{%Начало макроопределения
+\vspace*{50pt}%Пустое место вверху страницы
+{\parindent=18pt \normalfont\Large\bfseries #1 \par %заголовок от текста
+\nopagebreak %чтоб не оторвать заголовок от текста
+\vspace{40pt} %между заголовком и текстом
+}%конец группы
+}%коней макроопределения
+
+%оформление разделов
+\renewcommand{\section}{\@startsection{section}{1}{18pt}%
+{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}%
+{\normalfont\Large\bfseries\raggedright}}%
+
+%оформление подразделов
+\renewcommand{\subsection}{\@startsection{subsection}{2}{18pt}%
+{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}%
+{\normalfont\large\bfseries\raggedright}}%
+
+%оформление подподразделов
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{18pt}%
+{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}%
+{\normalfont\large\bfseries\raggedright}}%
+
+%оформление библиографии
+\renewcommand{\@biblabel}[1]{#1.}
+
+\addto\captionsrussian{\renewcommand\figurename{Рисунок}}
+
+%Оформление подписи рисунка
+%\renewcommand \thefigure{\@arabic\c@figure}
+%чтобы номер рисунка содержал номер главы (например, рисунок 2.1) надо закомментировать предыдущую строку
+\setlength\belowcaptionskip{10\p@}
+\renewenvironment{figure}{%
+\let\@makecaption\@makefigurecaption
+\@float{figure}}%
+{%
+\addtocontents{lof}{ {\vskip 0.4em} }%
+\end@float%
+}
+%
+
+%Оформление подписи таблицы
+\newcommand{\@makefigurecaption}[2]{%
+\vspace{\abovecaptionskip}%
+\sbox{\@tempboxa}{\large #1 --- \large #2}%
+\ifdim \wd\@tempboxa >\hsize {\center\hyphenpenalty=10000\large #1 --- \large #2 \par}%
+\else \global\@minipagefalse \hbox to \hsize
+{\hfil \hyphenpenalty=10000 \large #1 --- \large #2\hfil}%
+\fi \vspace{\belowcaptionskip}}
+
+
+\renewcommand{\thetable}{\@arabic\c@table}
+%чтобы номер таблицы содержал номер главы (например, таблица 2.1) надо закомментировать предыдущую строку
+\renewenvironment{table}{%
+\let\@makecaption\@maketablecaption
+\@float{table}}%
+{%
+\addtocontents{lot}{ {\vskip 0.4em} }%
+\end@float%
+}
+%
+
+\def\pprob           {\mbox{\normalfont\bfseries\sffamily P}}
+\def\prob          #1{\pprob\left\{#1\right\}}
+\def\EE              {\mbox{\normalfont\bfseries\sffamily E}}
+\def\DD              {\mbox{\normalfont\bfseries\sffamily D}}
+\def\E             #1{\EE\left\{#1\right\}}
+\def\D             #1{\DD\left\{#1\right\}}
+\def\vvar            {\mbox{\normalfont\bfseries\sffamily Var}}
+\def\var           #1{\vvar\left\{#1\right\}}
+\def\KL              {\mathrm{KL}}
+
+\def\zeros{{\bf{0}}}
+\def\ones{{\bf{1}}}
+\def\Z{\mathbb{Z}}
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+\def\proj#1{\left\langle#1\right\rangle}
+\def\one#1{\mathbbm{1}\left\{#1\right\}}
+\def\boolset{\{0,1\}}
+\def\spinset{\{\pm1\}}
+\def\iu#1{\left\lceil{#1}\right\rceil}
+\def\il#1{\left\lfloor{#1}\right\rfloor}
+
+\def\obig#1{\mathcal{O}\left(#1\right)}
+
+\def\cliq{\mathcal{C}}
+\def\fspace{\mathfrak{X}}
+\def\kspace{\mathbb{K}}
+\def\espace{\mathbb{E}}
+\def\entropy{\mathrm{\bf H}}
+
+\def\diag {\mathrm{diag}}
+
+\def\idmatrix {\mathbf{I}}
+\def\trace    {\mathrm{tr}}
+\def\rank     {\mathrm{rank}}
+
+\def\Nparam {N}
+\def\Eparam {E}
+
+\def\dotp   #1{\left\langle#1\right\rangle}
+
+\newlength\abovetablecaptionskip
+\newlength\belowtablecaptionskip
+\newlength\tableparindent
+\setlength\abovetablecaptionskip{10\p@}
+\setlength\belowtablecaptionskip{0\p@}
+\setlength\tableparindent{18\p@}
+\newcommand{\@maketablecaption}[2]{
+  \vskip\abovetablecaptionskip
+  \hskip\tableparindent \large #1~---\ \large #2\par
+  \vskip\belowtablecaptionskip
+}
+
+\makeatother%
+
+\sloppy
+
+
+\begin{document}
+\thispagestyle{empty}
+\begin{normalsize}
+\begin{center}
+{\bf МИНИСТЕРСТВО ОБРАЗОВАНИЯ РЕСПУБЛИКИ БЕЛАРУСЬ}
+\end{center}
+
+\begin{center}
+{\bf БЕЛОРУССКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ}
+\end{center}
+
+\begin{center}
+{\bf Факультет прикладной математики и информатики}
+\end{center}
+
+\begin{center}
+Кафедра математического моделирования и анализа данных
+\end{center}
+\end{normalsize}
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+\begin{center}
+{\bf ИВЬЕВ ИЛЬЯ ЮРЬЕВИЧ}
+\end{center}
+\bigskip
+
+\begin{center}
+{\bf СРАВНИТЕЛЬНЫЙ АНАЛИЗ ДВУХ МАРКОВСКИХ ПОДХОДОВ К СТАТИСТИЧЕСКОМУ МОДЕЛИРОВАНИЮ ДВОИЧНЫХ ПОЛЕЙ}
+\end{center}
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+\begin{center}
+Отчет по предипломной практике\linebreak
+студента 4 курса 7 группы
+\end{center}
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+%\begin{flushleft}
+\linespread{1.0}
+\begin{tabular}{@{}p{12cm}@{}p{6cm}}
+{\small ''Допустить к защите''} & {\bf\small Руководитель}\\
+{\small{с предварительной оценкой}}\begin{picture}(280,15)\put(5, -2){\line(1,0){20}}\end{picture} & {\small Волошко Валерий Анатольевич }\\
+{\bf\small Руководитель работы}\begin{picture}(280,15)\put(5, -2){\line(1,0){140}}\end{picture}& {\small доцент кафедры ММАД} \\
+\begin{picture}(140,15)\put(0, -2){``\line(1,0){20}''\quad\put(0,0){\line(1,0){70}{\small~ 2017 г}}}\end{picture} & {\small канд. физ.-мат. наук}\\
+\end{tabular}
+%\end{flushleft}
+
+\vspace{\stretch{1}}
+
+\begin{center}
+\bf{МИНСК 2017}
+\end{center}
+
+\newpage
+
+{\linespread{1.10}\tolerance=2000
+\renewcommand{\contentsname}{Содержание}
+\tableofcontents}
+
+\chapter*{Введение}\addcontentsline{toc}{chapter}{Введение} Модели двоичных случайных
+последовательностей ???
+
+\chapter{Описание данных}
+
+Будем рассматривать двоичные поля спинов:
+\begin{equation}\label{K2toB}
+x:\kspace^2\to\spinset,
+\end{equation}
+заданные на стандартной прямоугольной решетке размера $m\times n$:
+\begin{equation}\label{K2}
+\kspace^2::=\{1,2,\dots,m\}\times\{1,2,\dots,n\},\ m,n\in\N,
+\end{equation}
+где $\times$ означает декартово произведение множеств,
+$\N=\{1,2,\dots\}$ --- множество натуральных (целых положительных)
+чисел. Кроме того, снабдим решетку \eqref{K2} структурой графа с
+множеством ребер:
+\begin{align}
+\espace^2::&=\{\{(i,j),(i,j+1)\}:1\leq i\leq m,1\leq
+j<n\}\notag\\
+&\cup\{\{(i,j),(i+1,j)\}:1\leq i<m,1\leq j\leq n\}.\label{E2}
+\end{align}
+Спиновое значение, принимаемое двоичным полем \eqref{K2toB} в точке
+$k=(i,j)\in\kspace^2$, будем обозначать с помощью нижнего индекса:
+\[
+x_{i,j}=x_k\in\spinset.
+\]
+
+\begin{remark}
+Парой значений, принимаемых двоичным полем, может служить любое
+двухэлементное множество, и его выбор в каждом случае обусловлен
+удобством для конкретной решаемой задачи. В нашем случае более
+удобным по сравнению с ``нулем и единицей'' двухэлементным
+множеством оказывается пара спинов $\spinset$, традиционно
+используемая в статфизике.
+\end{remark}
+
+\begin{figure}[h!]
+\center{\includegraphics[width = 0.5\textwidth]{2Dgrid}}
+\caption{Двумерная прямоугольная решетка} \label{2Dgrid.img}
+\end{figure}
+
+Прямоугольная решетка \eqref{K2}, \eqref{E2} изображена на рисунке
+\ref{2Dgrid.img}. Она имеет следующие числа вершин и ребер:
+\begin{align}\label{K2size}
+\Nparam::&=\#\kspace^2=mn,\\
+\Eparam_2::&=\#\espace^2=m(n-1)+n(m-1)=2N-m-n\approx2N.\label{E2size}
+\end{align}
+Последнее приближенное равенство имеет место при больших $m$ и $n$.
+
+\begin{remark}
+Здесь и далее $\#X$ означает мощность конечного множества $X$.
+\end{remark}
+
+Описанная прямоугольная решетка \eqref{K2}, \eqref{E2} представляет
+собой стандартную дискретную модель плоскости. При этом ребра
+\eqref{E2} отвечают за понятие близости точек.
+
+В предыдущей работе были описаны марковские случайные поля (далее,
+MRF от английского Markov Random Field), представляющие собой
+естественные вероятностные модели полей \eqref{K2toB}. MRF позволяют
+учесть статистические зависимости между элементами поля,
+приписанными близким узлам решетки. Однако работа с MRF и их
+теоретический анализ существенно труднее работы со стандартными
+цепями Маркова. Поэтому в прикладных исследованиях случайные поля
+иногда заменяют случайными последовательностями, для которых
+разработан более широкий спектр инструментов статистического
+анализа.
+
+Примером такой замены в случае анализа изображений служит
+рассмотрение двумерного $(m\times n)$-массива пикселей (атомарных
+элементов изображения, от английского pixel = picture element) в
+виде одномерного массива (вектора) размера $N=mn$. Эта процедура
+векторизации эквивалентна введению полного линейного порядка на
+множестве пикселей. К примеру, в большинстве компьютерных систем
+пиксели изображения хранятся в памяти в порядке, проиллюстрированном
+рисунком \ref{zscan.img}.
+
+\begin{figure}[h!]
+\center{\includegraphics[width = 0.5\textwidth]{zscan}}
+\caption{Стандартная построчная развертка двумерной прямоугольной
+решетки} \label{zscan.img}
+\end{figure}
+
+\section{Понятие развертки}
+
+Формализуем описанное выше понятие векторизации изображения.
+
+\begin{definition}
+Разверткой будем называть взаимно однозначное отображение
+\begin{equation}\label{scan}
+\phi:\kspace^2\to\kspace^1
+\end{equation}
+двумерной решетки \eqref{K2} на одномерную решетку
+\begin{equation}\label{K1}
+\kspace^1::=\{1,2,\dots,N\},\ \espace^1::=\{\{i,i+1\}:1\leq i<N\}.
+\end{equation}
+\end{definition}
+
+Одномерная решетка \eqref{K1} имеет следующие характеристики:
+\begin{equation}\label{KE1size}
+\#\kspace^1=\#\kspace^2=N,\ \#\espace^1=N-1\approx N.
+\end{equation}
+Другими словами, столько же узлов и приблизительно вдвое меньше
+ребер (при больших $m$ и $n$) по сравнению с прямоугольной решеткой
+\eqref{K2}, \eqref{E2}.
+
+Любая развертка \eqref{scan} превращает двоичное $(m\times n)$-поле
+\eqref{K2toB} в двоичную последовательность длины $N$:
+\begin{equation}\label{scan.seq}
+x^\phi_i::=x_{\phi^{-1}(i)}\in\spinset,\ i=1,\dots,N.
+\end{equation}
+
+Для стандартной построчной развертки, изображенной на рисунке
+\ref{zscan.img}, имеем:
+\begin{equation}\label{scan.row}
+\phi(i,j)=n(i-1)+j.
+\end{equation}
+
+Переход от исходного двоичного поля \eqref{K2toB} к двоичной
+последовательности-развертке является некоторым огрублением и
+упрощением модели данных. Естественным и очевидным требованием к
+такому упрощению должна быть минимизация его ``грубости'' и,
+соответственно, частичное сохранение исследуемых свойств.
+
+Одно из таких важных на практике свойств, которое желательно
+сохранить при векторизации изображения, есть свойство близости точек
+решетки (и пикселей изображения). Это важно, поскольку марковские
+модели --- как одномерные, так и общего вида --- предназначены для
+исследования локальной статистической зависимости, ослабевающей с
+ростом расстояния между узлами.
+
+\begin{definition}
+Развертку \eqref{scan} будем называть непрерывной, если прообразы
+соседних точек в $\kspace^1$ --- соседи в решетке $\kspace^2$:
+\[
+\phi^{-1}(\espace^1)\subset\espace^2.
+\]
+В противном случае будем называть развертку разрывной.
+\end{definition}
+
+Очевидно, стандартная развертка \eqref{scan.row} разрывна, поскольку
+не соседние узлы $k=(1,n)$ и $k'=(2,1)$ отображаются в соседние
+$\phi(k)=n$ и $\phi(k')=n+1$. Кроме этой стандартной развертки мы
+будем использовать следующие развертки, приведенные на рисунке
+\ref{3scans.img}. Нетрудно видеть, что все они непрерывны.
+
+Развертка Пеано возможна только на квадратной решетке при
+\[
+m=n=2^s,\ s\in\N.
+\]
+Преимущество развертки Пеано и спиральной развертки перед
+стандартной \eqref{scan.row} и змейкой состоит в равнозначном учете
+вертикальных и горизонтальных связей между узлами. При этом
+развертка Пеано обладает этим свойством локально на любом фрагменте
+решетки (см. рисунок \ref{snake_vs_Peano.img}, а), в то время как
+для змейки решетка может быть разбита на две части, в одной из
+которых учитываются только вертикальные связи, а в другой --- только
+горизонтальные (см. рисунок \ref{snake_vs_Peano.img}, б).
+
+\begin{figure}[h!]
+\center{\includegraphics[width = \textwidth]{3scans}}
+\caption{Развертки двумерной прямоугольной решетки: а --- Пеано, б
+--- спиральная, в --- змейка} \label{3scans.img}
+\end{figure}
+
+\begin{figure}[h!]
+\center{\includegraphics[width = \textwidth]{snake_vs_Peano}}
+\caption{Учет вертикальных и горизонтальных связей в развертках
+Пеано и змейке} \label{snake_vs_Peano.img}
+\end{figure}
+
+\chapter{Два подхода к моделированию случайного двоичного поля}
+
+Мы будем сравнивать два подхода к вероятностному моделированию
+двоичного случайного поля \eqref{K2toB} на квадратной решетке
+\eqref{K2}, \eqref{E2}. Оба подхода основаны на простейшем типе
+Марковского случайного поля --- модели Изинга с нулевым внешним
+полем. Эта модель была описана в предыдущей работе. Для
+произвольного графа $G=(V,E)$ модель Изинга с нулевым внешним полем
+приписывает каждой конфигурации спинов $x\in\spinset^V$ вероятность:
+\begin{equation}\label{ising.def}
+p(x,\beta)=\frac1Ze^{\beta H},
+\end{equation}
+где $\beta\in\R$ --- единственный параметр модели, величина
+\begin{equation}\label{hamilt}
+H=H(x)=\sum_{e=\{u,v\}\in E}x_ux_v
+\end{equation}
+называется Гамильтонианом, а величина
+\begin{equation}\label{partit}
+Z=Z(\beta)=\sum_{x\in\spinset^V}e^{\beta H(x)}
+\end{equation}
+называется статсуммой модели.
+
+Для линейного графа \eqref{K1} описанная модель эквивалентна
+стационарной цепи Маркова первого порядка с симметричной матрицей
+переходных вероятностей
+\begin{equation}\label{ising.1D}
+(\prob{x_{i+1}=a|x_i=b})_{a,b\in\spinset}=\frac{1}{2\cosh\beta}\left(\begin{matrix}
+e^{+\beta}&e^{-\beta}\\
+e^{-\beta}&e^{+\beta}
+\end{matrix}\right).
+\end{equation}
+Здесь и далее
+\[
+\cosh z=\frac{e^z+e^{-z}}{2},\ \sinh z=\frac{e^z-e^{-z}}{2},\ \tanh
+z=\frac{\sinh z}{\cosh z},\ \coth z=\frac{\cosh z}{\sinh z}\ -
+\]
+гиперболические косинус, синус, тангенс и котангенс.
+
+Первый исследуемый подход к вероятностному моделированию двоичного
+поля \eqref{K2toB} состоит в применении одномерной модели Изинга
+\eqref{ising.1D} к развертке \eqref{scan.seq}. Второй подход
+предполагает непосредственное использование двумерной модели Изинга
+для графа \eqref{K2}, \eqref{E2}.
+
+\begin{remark}
+В случае непрерывной развертки $\phi$ первый подход представляет
+собой огрубление второго подхода следующего типа: мы берем то же
+множество узлов $\kspace^2$ и убираем примерно половину связей
+$e\in\espace^2$ между узлами, оставляя лишь те ребра
+$e'\in\phi^{-1}(\espace^1)\subset\espace^2$, которые образуют
+цепочку развертки $\phi$. При этом, если $\phi$-прообразы близких
+точек в $\kspace^1$ обязательно близки в $\kspace^2$, обратное
+неверно и $\phi$-образы близких в $\kspace^2$ точек могут быть
+далеки в $\kspace^1$. Это приводит к тому, что близко расположенные
+спины в огрубленной вероятностной модели поля \eqref{K2toB} могут
+быть слабозависимы.
+\end{remark}
+
+\begin{remark}
+Таким образом, настоящая работа имеет следующие цели:
+\begin{enumerate}
+\item исследовать ущерб от описанного выше упрощения модели Изинга
+\eqref{ising.def}-\eqref{partit} двоичного поля \eqref{K2toB} на
+двумерной квадратной решетке \eqref{K2}, \eqref{E2};
+
+\item сравнить различные развертки \eqref{scan} по величине этого
+ущерба;
+
+\item найти оптимальную развертку, либо развертку, оптимальную в
+некотором классе.
+\end{enumerate}
+\end{remark}
+
+\section{Расстояния Кульбака-Лейблера между моделями}
+
+Для теоретического анализа и сравнения различных описанных
+вероятностных моделей будем использовать несимметричное расстояние
+Кульбака-Лейблера $\KL(p|q)$ между распределениями вероятностей $p$
+и $q$ на конечном множестве $I$:
+\begin{equation}\label{KL}
+\KL(p|q)=\sum_{i\in I}p_i\ln\frac{p_i}{q_i}\geq0.
+\end{equation}
+
+Многие важные численные характеристики модели Изинга могут быть
+выражены через ее статсумму \eqref{partit}, точнее, через ее
+логарифм. В случае рассматриваемых квадратной решетки \eqref{K2},
+\eqref{E2} и линейной решетки \eqref{K1} больших размеров $N=\#V$
+логарифм статсуммы может быть приближен с помощью так называемой
+свободной энергии:
+\begin{equation}\label{F}
+F(\beta)::=\lim_{N\to\infty}\frac1N\ln Z(\beta).
+\end{equation}
+Для линейной решетки \eqref{K1} свободная энергия \eqref{F}
+находится элементарно:
+\begin{equation}\label{F1}
+F_1(\beta)=\ln2+\ln\cosh\beta.
+\end{equation}
+Для квадратной решетки \eqref{K2}, \eqref{E2} задача нахождения
+свободной энергии оказывается существенно сложнее. Впервые она была
+решена Ларсом Онзагером, который в 1944 году представил свою
+формулу:
+\begin{equation}\label{F2}
+F_2(\beta)=\ln\cosh(2\beta)+\frac12\left(\ln2+\frac1{2\pi}\int_0^{2\pi}\ln\left(1+\sqrt{1-\gamma^2\cos^2\lambda}\right)d\lambda\right),\
+\gamma=\frac{2\sinh(2\beta)}{\cosh^2(2\beta)}.
+\end{equation}
+Впоследствии решение Онзагера было значительно упрощено.
+
+\begin{definition}$\phantom{.}$
+\begin{itemize}
+\item Распределение вероятностей \eqref{ising.def} для прямоугольной
+решетки \eqref{K2}, \eqref{E2} будем обозначать $\pi_2(\beta)$.
+
+\item Распределение вероятностей двоичного поля \eqref{K2toB}, при котором
+его $\phi$-развертка \eqref{scan.seq} описывается одномерной моделью
+Изинга \eqref{ising.1D}, будем обозначать $\pi_1(\beta,\phi)$ и
+называть $\phi$-разверточной моделью.
+
+\item $\phi$-разверточную модель $\pi_1(\beta,\phi)$ будем называть
+непрерывной, если непрерывна соответствующая развертка $\phi$.
+\end{itemize}
+\end{definition}
+
+\begin{theorem}\label{KL21thm}
+При больших размерах $m,n\gg1$ прямоугольной решетки \eqref{K2},
+\eqref{E2} расстояние Кульбака-Лейблера \eqref{KL} между двумерной
+моделью Изинга $\pi_2(\beta_2)$ и непрерывной $\phi$-разверточной
+моделью $\pi_1(\beta_1,\phi)$ допускает не зависящую от развертки
+$\phi$ аппроксимацию:
+\begin{equation}\label{KL21}
+\frac1N\KL(\pi_2(\beta_2)|\pi_1(\beta_1,\phi))\approx\KL_{21}(\beta_2,\beta_1),
+\end{equation}
+где
+\begin{equation}\label{KL21def}
+\KL_{21}(\beta_2,\beta_1)=\left(\beta_2-\frac12\beta_1\right)F_2'(\beta_2)-F_2(\beta_2)+F_1(\beta_1).
+\end{equation}
+Одномерная и двумерная функции свободной энергии $F_1(\cdot)$ и
+$F_2(\cdot)$ определены в \eqref{F1} и \eqref{F2} соответственно.
+\end{theorem}
+
+\begin{proof}
+Обозначим через $H_\phi(x)$ Гамильтониан конфигурации
+$x\in\spinset^{\kspace^2}$, соответствующий непрерывной развертке
+$\phi$:
+\[
+H_\phi(x)::=\sum_{e=\{u,v\}\in\phi^{-1}(\espace^1)\subset\espace^2}x_ux_v.
+\]
+Разверточная модель $\pi_1(\beta_1,\phi)$ описывается формулой
+\eqref{ising.def} с Гамильтонианом $H_\phi$. Соответствующая этому
+Гамильтониану статсумма \eqref{partit} не зависит от развертки
+$\phi$, потому обозначим ее $Z_1(\beta)$. Полный Гамильтониан
+конфигурации $x$ для решетки \eqref{K2}, \eqref{E2} обозначим:
+\[
+H_2(x)::=\sum_{e=\{u,v\}\in\espace^2}x_ux_v.
+\]
+Соответствующую этому Гамиольтониану статсумму \eqref{partit}
+обозначим $Z_2(\beta)$. Будем также писать $\EE_2$ для
+математического ожидания при условии, что имеет место модель
+$\pi_2(\beta_2)$ двоичного поля \eqref{K2toB}. Из \eqref{ising.def}
+и \eqref{KL} с учетом \eqref{F}-\eqref{F2} имеем:
+\begin{align}
+\frac1N\KL(\pi_2(\beta_2)|\pi_1(\beta_1,\phi))&=\frac1N\EE_2\left\{\ln\pi_2(x|\beta_2)-\ln\pi_1(x|\beta_1,\phi)\right\}\notag\\
+&=\frac1N\EE_2\left\{\beta_2H_2(x)-\ln
+Z_2(\beta_2)-\beta_1H_\phi(x)+\ln Z_1(\beta_1)\right\}\notag\\
+&\approx
+F_1(\beta_1)-F_2(\beta_2)+\frac1N\EE_2\left\{\beta_2H_2(x)-\beta_1H_\phi(x)\right\}.\label{KL21thm.pf1}
+\end{align}
+В условиях модели $\pi_2(\beta_2)$ и при больших размерах $m,n\gg1$
+прямоугольной решетки \eqref{K2}, \eqref{E2} большинство пар
+соседних спинов $(x_u,x_v)$ имеют совместное распределение, близкое
+к таковому в термодинамическом пределе ($N\to\infty$). А поскольку
+Гамильтониан $H_\phi$ содержит примерно половину спиновых
+произведений $x_ux_v$, входящих в Гамильтониан $H_2(x)$, получаем:
+\begin{equation}\label{KL21thm.pf2}
+\frac1N\EE_2\left\{\beta_2H_2(x)-\beta_1H_\phi(x)\right\}\approx\left(\beta_2-\frac12\beta_1\right)\frac1N\EE_2\{H_2(x)\}.
+\end{equation}
+В свою очередь
+\begin{align}
+\frac1N\EE_2\{H_2(x)\}::&=\frac{N^{-1}}{Z_2(\beta_2)}\sum_{x\in\spinset^{\kspace^2}}H_2(x)e^{\beta_2H_2(x)}\notag\\
+&=\frac1N\frac{Z_2'(\beta_2)}{Z_2(\beta_2)}
+=\frac{d}{d\beta_2}\left(\frac1N\ln Z_2(\beta_2)\right)\approx
+F_2'(\beta_2).\label{KL21thm.pf3}
+\end{align}
+Совмещая \eqref{KL21thm.pf1}-\eqref{KL21thm.pf3}, приходим к
+\eqref{KL21}.
+\end{proof}
+
+\begin{corollary}
+При больших размерах $m,n\gg1$ прямоугольной решетки \eqref{K2},
+\eqref{E2} оптимальная с точки зрения расстояния Кульбака-Лейблера
+\eqref{KL21} непрерывная $\phi$-разверточная аппроксимация
+$\pi_1(\beta_1,\phi)$ двумерной модели Изинга $\pi_2(\beta_2)$ имеет
+не зависящий от развертки $\phi$ параметр $\beta_1$, определяемый
+равенством:
+\begin{equation}\label{beta1best}
+\tanh\beta_1=\frac12F_2'(\beta_2).
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Достаточно приравнять к нулю производную по $\beta_1$ выражения
+\eqref{KL21def}, где $F_1'(\beta_1)=\tanh\beta_1$ согласно
+\eqref{F1}.
+\end{proof}
+
+\chapter{Численные эксперименты}
+
+\begin{figure}[h!]
+\center{\includegraphics[width = \textwidth]{class1_row_peano}}
+\caption{Сравнение центрированных оценок максимального правдоподобия для построчной развертки и развертки Пеано для 1-го класса изображений} \label{class1_row_peano.img}
+\end{figure}
+
+\begin{figure}[h!]
+\center{\includegraphics[width = \textwidth]{class1_snake_peano}}
+\caption{Сравнение центрированных оценок максимального правдоподобия для развертки "змейка" и развертки Пеано для 1-го класса изображений} \label{class1_snake_peano.img}
+\end{figure}
+
+\begin{figure}[h!]
+\center{\includegraphics[width = \textwidth]{class1_spiral_peano}}
+\caption{Сравнение центрированных оценок максимального правдоподобия для спиральной развертки и развертки Пеано для 1-го класса изображений} \label{class1_spiral_peano.img}
+\end{figure}
+
+\begin{figure}[h!]
+\center{\includegraphics[width = \textwidth]{class1_ising_peano}}
+\caption{Сравнение центрированных оценок максимального правдоподобия для 2-мерной модели Изинга и развертки Пеано для 1-го класса изображений} \label{class1_ising_peano.img}
+\end{figure}
+
+\begin{figure}[h!]
+\center{\includegraphics[width = \textwidth]{class2_row_peano}}
+\caption{Сравнение центрированных оценок максимального правдоподобия для построчной развертки и развертки Пеано для 2-го класса изображений} \label{class2_row_peano.img}
+\end{figure}
+
+\begin{figure}[h!]
+\center{\includegraphics[width = \textwidth]{class2_snake_peano}}
+\caption{Сравнение центрированных оценок максимального правдоподобия для развертки "змейка" и развертки Пеано для 2-го класса изображений} \label{class2_snake_peano.img}
+\end{figure}
+
+\begin{figure}[h!]
+\center{\includegraphics[width = \textwidth]{class2_spiral_peano}}
+\caption{Сравнение центрированных оценок максимального правдоподобия для спиральной развертки и развертки Пеано для 2-го класса изображений} \label{class2_spiral_peano.img}
+\end{figure}
+
+\begin{figure}[h!]
+\center{\includegraphics[width = \textwidth]{class2_ising_peano}}
+\caption{Сравнение центрированных оценок максимального правдоподобия для 2-мерной модели Изинга и развертки Пеано для 2-го класса изображений} \label{class2_ising_peano.img}
+\end{figure}
+
+\begin{figure}[h!]
+\center{\includegraphics[width = \textwidth]{class3_row_peano}}
+\caption{Сравнение центрированных оценок максимального правдоподобия для построчной развертки и развертки Пеано для 3-го класса изображений} \label{class3_row_peano.img}
+\end{figure}
+
+\begin{figure}[h!]
+\center{\includegraphics[width = \textwidth]{class3_snake_peano}}
+\caption{Сравнение центрированных оценок максимального правдоподобия для развертки "змейка" и развертки Пеано для 3-го класса изображений} \label{class3_snake_peano.img}
+\end{figure}
+
+\begin{figure}[h!]
+\center{\includegraphics[width = \textwidth]{class3_spiral_peano}}
+\caption{Сравнение центрированных оценок максимального правдоподобия для спиральной развертки и развертки Пеано для 3-го класса изображений} \label{class3_spiral_peano.img}
+\end{figure}
+
+\begin{figure}[h!]
+\center{\includegraphics[width = \textwidth]{class3_ising_peano}}
+\caption{Сравнение центрированных оценок максимального правдоподобия для 2-мерной модели Изинга и развертки Пеано для 3-го класса изображений} \label{class3_ising_peano.img}
+\end{figure}
+
+\chapter*{Заключение}
+\addcontentsline{toc}{chapter}{Заключение}
+
+В ходе выполнения дипломной работы ???
+
+\renewcommand{\bibname}{Список литературы}
+\addcontentsline{toc}{chapter}{Список литературы}
+
+\begin{thebibliography}{99}
+
+\bibitem{one} {\it Kindermann,~R., Snell,~J.L.} Markov Random Fields and Their Applications~/
+R.~Kindermann, J.L.~Snell. --- American Mathematical Society, 1980.
+--- 142~p.
+
+\bibitem{two} {\it Hammersley,~J.M., Clifford,~P.} Markov Fields on Finite Graphs and Latties. --- 1971 (unpublished).
+
+\bibitem{three} {\it Moussouris,~J.} Gibbs and Markov Systems with Constraints~/
+J.~Moussouris~// J. Statistical Physics. --- 1974. --- Vol.~10.
+--- P.~11--33.
+
+\bibitem{four} {\it Kramers,~H.A., Wannier,~G.H.} Statistics of Two-dimensional Ferromagnet~/
+H.A.~Kramers, G.H.~Wannier~// Physical Review
+--- 1941 --- Vol.~60. --- P. 252-262.
+
+\bibitem{five} {\it Geman,~S., Geman,~D.} Stochastic Relaxation, Gibbs Distributions, and the
+Bayesian Restoration of Images~/ S.~Geman, D.~Geman.~// IEEE Trans.
+Pattern Anal. Mach. Intell., 6:721--741, 1984.
+
+\bibitem{onsager} {\it Onsager,~L.} Crystal statistics. I. A Two-dimensional Model
+with an Order-disorder Transition~/ L.~Onsager~// Physical Review
+--- 1944 --- Vol.~65. --- P.~117--149.
+
+\end{thebibliography}
+
+\end{document}
